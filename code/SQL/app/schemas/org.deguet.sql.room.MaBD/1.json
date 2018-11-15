@@ -1,0 +1,66 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "80369c05b814eafdf24207c1403289bc",
+    "entities": [
+      {
+        "tableName": "ProduitAnnot",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `tax` TEXT, `name` TEXT, `nameNoIndex` TEXT, `unit_price` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tax",
+            "columnName": "tax",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nom",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nomSansIndex",
+            "columnName": "nameNoIndex",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prixUnitaire",
+            "columnName": "unit_price",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_ProduitAnnot_name",
+            "unique": true,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_ProduitAnnot_name` ON `${TABLE_NAME}` (`name`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"80369c05b814eafdf24207c1403289bc\")"
+    ]
+  }
+}
